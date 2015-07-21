@@ -16,6 +16,7 @@ module TimeoutFramework
     define_method(method) do |*args|
       return self.send("new_#{method}", *args) if TIMEOUT_OPTIONS[method].nil?
       options = TIMEOUT_OPTIONS[method]
+      ret = nil
       begin
         Timeout.timeout(options[:timeout]) do
           # we can also measure the time here to make it self-adapitve
@@ -35,7 +36,7 @@ end
 
 class TimeoutTest
   extend TimeoutFramework
-  TimeoutTest.timeout :search, :timeout => 1.5,   :default_return => []
+  TimeoutTest.timeout :search, :timeout => 1.5, :default_return => []
   TimeoutTest.timeout :create, :timeout => 0.5, :default_return => {}
   def delete
     sleep(1)
@@ -69,7 +70,7 @@ output:
   a
   search succeeded!
   1.008764
-  nil
+  [1]
   create takes too long, cut it off
   {}
 =end
