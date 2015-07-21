@@ -36,8 +36,8 @@ end
 
 class TimeoutTest
   extend TimeoutFramework
-  TimeoutTest.timeout :search, :timeout => 1.5, :default_return => []
-  TimeoutTest.timeout :create, :timeout => 0.5, :default_return => {}
+  timeout :search, :timeout => 1.5, :default_return => []
+  timeout :create, :timeout => 0.5, :default_return => {}
   def delete
     sleep(1)
     puts 'delete succeeded!'
