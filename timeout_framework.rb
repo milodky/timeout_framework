@@ -18,7 +18,7 @@ module TimeoutFramework
       options = TIMEOUT_OPTIONS[method]
       begin
         Timeout.timeout(options[:timeout]) do
-          # we can also measure the timeout here to make it adapitve
+          # we can also measure the time here to make it self-adapitve
           time = Time.now
           ret = self.send(:"new_#{method}", *args)
           puts Time.now - time 
