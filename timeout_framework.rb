@@ -1,6 +1,6 @@
 require 'timeout'
 module TimeoutFramework
-  @filtering      = false
+  @processing     = false
   TIMEOUT_OPTIONS = {}
   def timeout(method, options = {:timeout => 1, :default_return => []})
     TIMEOUT_OPTIONS[method] = options
