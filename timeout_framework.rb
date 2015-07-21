@@ -60,3 +60,16 @@ if __FILE__ == $0
   puts tt.search.inspect
   puts tt.create.inspect
 end
+
+
+=begin
+output:
+  delete succeeded!
+  nil
+  a
+  search succeeded!
+  1.008764
+  nil
+  create takes too long, cut it off
+  {}
+=end
